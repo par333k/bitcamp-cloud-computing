@@ -31,7 +31,6 @@ public class MemberListServlet extends HttpServlet {
             params.put("pageSize", size);
         }
         
-        response.setContentType("text/html;charset=UTF-8");
 
         try {
             MemberDao memberDao = 
@@ -40,15 +39,12 @@ public class MemberListServlet extends HttpServlet {
             List<Member> list = memberDao.selectList(params);
             request.setAttribute("list", list);
             
-            RequestDispatcher rd = 
-                    request.getRequestDispatcher("/member/list.jsp");
-            rd.include(request, response);
+            request.setAttribute("view", "/member/list.jsp");
+           
             
         } catch (Exception e) {
             request.setAttribute("error", e);
-            RequestDispatcher rd = 
-                    request.getRequestDispatcher("/error.jsp");
-            rd.forward(request, response);
+
         }
     }
     
