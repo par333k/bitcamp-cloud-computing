@@ -40,3 +40,27 @@
 
 ## web-10 : Spring IoC 컨테이너 도입
 - 기존 직접 만든 IoC 컨테이너 대신에 스프링 컨테이너를 사용한다.
+
+## web-11 : Spring + Mybatis 연동하기
+- 기존에 직접 만든 SqlSessionFactoryBean 대신에 Mybatis가 제공하는 SqlSessionFactoryBean을 사용한다.
+- DB 커넥션풀은 Mybatis 대신에 Spring에서 관리한다.
+- 트랜잭션을 다룰 수 있도록 트랜잭션 관리자를 설정한다.
+- Proxy 패턴을 사용한 DAO 자동 생성 기능을 이용한다.
+
+## web-12 : Spring WebMVC의 ContextLoaderListener 사용하기
+- 기존에 직접 만든 ContextLoaderListener 대신에 Spring WebMVC에서 제공하는 클래스를 사용한다.
+
+## web-13 : Spring WebMVC의 DispatcherServlet 사용하기
+- 기존에 직접 만든 DispatcherServlet 대신에 Spring WebMVC에서 제공하는 클래스를 사용한다.
+
+## web-14 : JSP 경로를 /WEB-INF/ 폴더 아래로 옮긴다.
+- /WEB-INF 폴더 아래로 JSP를 옮기면 클라이언트에서 직접 요청할 수 없다. 
+
+## web-15 : 요청 핸들러의 파라미터와 리턴 값 다루기
+- 요청 핸들러의 파라미터로 타입을 알아본다.
+- 요청 핸들러의 리턴 다루기.
+
+
+
+
+
