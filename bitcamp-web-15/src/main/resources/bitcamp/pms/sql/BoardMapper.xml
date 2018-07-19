@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bitcamp.pms.dao.BoardDao">
+    <resultMap type="Board" id="BoardMap">
+        <id column="bno" property="no"/>
+        <result column="titl" property="title"/>
+        <result column="cont" property="content"/>
+        <result column="cdt" property="createdDate"/>
+    </resultMap>
+
+  <select id="selectList" resultMap="BoardMap">
+    select bno , titl, cdt from pms2_board
+  </select>
+  
+  <select id="selectOne" resultMap="BoardMap" parameterType="int">
+    select bno, titl, cont, cdt from pms2_board where bno=#{no}
+  </select>
+  
+  <update id="update" parameterType="Board">
+  update pms2_board set titl=#{title}, cont=#{content}, cdt=now() where bno=#{no}
+  </update>
+  
+  <delete id="delete" parameterType="int">
+  delete from pms2_board where bno=#{no}
+  </delete>
+  
+  <insert id="insert" parameterType="Board">
+  insert into pms2_board(titl,cont,cdt) values(#{title},#{content},now())
+  </insert>
+  
+</mapper>
