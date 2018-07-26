@@ -20,9 +20,15 @@ compileJava {
 
 
 dependencies {
+    // providedCompile: 빌드할 때 사용. 배포에는 제외
+    // https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api
+    providedCompile group: 'javax.servlet', name: 'javax.servlet-api', version: '4.0.1'
+    
+    // compile: 빌드할 때 사용. 배포에 포함.
     // This dependency is found on compile classpath of this component and consumers.
     compile 'com.google.guava:guava:23.0'
-
+    
+    // testCompile: 테스트할 때만 사용. 배포에는 제외.
     // Use JUnit test framework
     testCompile 'junit:junit:4.12'
 }
