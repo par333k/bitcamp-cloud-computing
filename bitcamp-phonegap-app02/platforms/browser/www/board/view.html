@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>게시물 보기</title>
+<link rel="stylesheet"
+	href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="../css/common.css">
+<style>
+div.container {
+	width: 600px;
+}
+</style>
+</head>
+<body>
+	<div class="container">
+		<form>
+			<div class="form-group row">
+				<label for="eNo" class="col-sm-2 col-form-label">글번호</label>
+				<div class="col-sm-5">
+					<input type="text" class="form-control" name='no' id="eNo"
+						placeholder="글번호" readonly>
+				</div>
+			</div>
+			<div class="form-group row">
+				<label for="eTitle" class="col-sm-2 col-form-label">제목</label>
+				<div class="col-sm-5">
+					<input type="text" class="form-control" name='title' id="eTitle"
+						placeholder="제목">
+				</div>
+			</div>
+			<div class="form-group row">
+				<label for="eContent" class="col-sm-2 col-form-label">내용</label>
+				<div class="col-sm-5">
+					<textarea name="content" rows='10' cols='60' class="form-control"
+						id="eContent" placeholder="내용"></textarea>
+				</div>
+			</div>
+			<div class="form-group row">
+				<label for="eCdt" class="col-sm-2 col-form-label">등록일</label>
+				<div class="col-sm-5">
+					<input type="text" class="form-control" name='createdDate'
+						id="eCdt" readonly>
+				</div>
+			</div>
+			<div class="form-group row">
+				<div class="col-sm-10">
+					<button id="eListBtn" type="button" class="btn btn-primary btn-sm">목록</button>
+					<button id="eUpdateBtn" type="button"
+						class="viewform btn btn-primary btn-sm">변경</button>
+					<button id="eDeleteBtn" type="button"
+						class="viewform btn btn-primary btn-sm">삭제</button>
+					<button id="eAddBtn" type="button"
+						class="newform btn btn-primary btn-sm">등록</button>
+				</div>
+			</div>
+		</form>
+	</div>
+	<script src="../node_modules/jquery/dist/jquery.min.js"></script>
+	<script src="../node_modules/popper.js/dist/umd/popper.min.js"></script>
+	<script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+	<script src="../js/jquery.bit.js"></script>
+	<script src="../js/common.js"></script>
+	<script src="view.js"></script>
+</body>
+</html>
