@@ -22,14 +22,14 @@ public class MemberServiceImpl implements MemberService {
     public String loginCheck(String id, String password, HttpSession httpSession) {
         String result ="로그인 성공";
         Member member = memberDao.getMember(id);
-        if(member==null) {
+        /*if(member==null) {
             result = "유효하지 않은 아이디입니다";
         }else if(!member.getPassword().equals(password)) {
             result = "비밀번호가 맞지 않습니다";
-        }else {
+        }else {*/
             httpSession.setAttribute("member", member);
             httpSession.setAttribute("id", member.getId());
-        }
+        //}
         return result;
     }
 

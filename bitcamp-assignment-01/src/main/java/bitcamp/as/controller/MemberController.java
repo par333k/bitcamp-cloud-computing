@@ -43,12 +43,12 @@ public class MemberController {
         String result = memberService.loginCheck(id, password, httpSession);
         if(result.equals("로그인 성공")) {
             httpSession.setAttribute("getMember", memberService.getMember(id));
-            return "redirect:main.do";
+            return "redirect:../html/assignment/list.html";
          }else {
             model.addAttribute("id", id);
             model.addAttribute("password", password);
             model.addAttribute("result", result);
-            return "forward:main.do";
+            return "forward:../html/assignment/list.html";
          }        
     }
     
