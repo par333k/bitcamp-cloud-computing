@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bitcamp.as.dao.MemberDao">
+
+  <!-- 컬럼명과 객체의 프로퍼티 명을 연결한다. -->
+  <resultMap type="Member" id="MemberMap">
+    <id column="mid" property="id"/>
+    <result column="pwd" property="password"/>
+    <result column="age" property="age"/>
+    <result column="email" property="email"/>
+  </resultMap>
+  
+  <select id ="getMember" resultMap="MemberMap" parameterType="map">
+    select mid, email, age from park_member where mid=#{id}
+  
+  </select>
+
+  <delete id="delete" parameterType="string">
+    delete from park_member
+    where mid=#{value}
+  </delete>
+  
+  <insert id="insert" parameterType="Member">
+    insert into park_member(mid,pwd,age,email) 
+    values(#{id},password(#{password}),#{age},#{email})
+  </insert>
+  
+</mapper>
+
+
+
+

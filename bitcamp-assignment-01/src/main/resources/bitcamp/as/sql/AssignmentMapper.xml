@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bitcamp.as.dao.AssignmentDao">
+    <resultMap type="Assignment" id="AssignmentMap">
+        <id column="ano" property="no"/>
+        <result column="aname" property="name"/>
+        <result column="aemail" property="email"/>
+        <result column="aphone" property="phone"/>
+         <result column="afaxno" property="fax"/>
+        <result column="amemo" property="memo"/>
+    </resultMap>
+
+  <select id="selectList" resultMap="AssignmentMap" parameterType="map">
+    select ano , aname from park_assignment
+    <if test="startIndex != null and pageSize != null">
+      limit #{startIndex}, #{pageSize}
+    </if>
+  </select>
+  
+  <select id="selectOne" resultMap="AssignmentMap" parameterType="int">
+    select ano, aname, aemail, aphone, afaxno, amemo from park_assignment where ano=#{no}
+  </select>
+  
+  <update id="update" parameterType="Assignment">
+  update park_assignment set aname=#{name}, aemail=#{email}, aphone=#{phone}, afaxno=#{fax}, amemo=#{memo} where ano=#{no}
+  </update>
+  
+  <delete id="delete" parameterType="int">
+  delete from park_assignment where ano=#{no}
+  </delete>
+  
+  <insert id="insert" parameterType="Assignment">
+  insert into park_assignment(aname,aemail,aphone,afaxno,amemo) values(#{name},#{email},#{phone},#{fax},#{memo})
+  </insert>
+  
+  <select id="countAll" resultType="int">
+    select count(*) from park_assignment
+  </select>
+</mapper>
